@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">MyExpenses</string>
+    <string name="setAmount">amount:</string>
+    <string name="setDescription">description:</string>
+    <string name="categorySelect">category:</string>
+    <string name="save">save</string>
+    <string name="edit">edit</string>
+    <string name="delete">delete</string>
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string name="title_activity_log_in">LogInActivity</string>
+    <string name="logInText">Go!</string>
+    <string name="who_are_you">Who are you?!</string>
+</resources>
