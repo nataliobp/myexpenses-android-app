@@ -1,4 +1,4 @@
-package com.myexpenses;
+package com.myexpenses.activity.expense_details;
 
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.myexpenses.R;
+import com.myexpenses.activity.save_expense.SaveExpenseActivity;
+import com.myexpenses.activity.expense_list_report.ExpenseListReportActivity;
 import com.myexpenses.model.Expense;
 import com.myexpenses.service.http.MyExpensesApiClient;
 import com.myexpenses.service.http.Response;

@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ExpenseListReportActivity">
+        <activity android:name=".activity.expense_list_report.ExpenseListReportActivity">
         </activity>
-        <activity android:name=".ExpenseDetailsActivity">
+        <activity android:name=".activity.expense_details.ExpenseDetailsActivity">
         </activity>
-        <activity android:name=".SaveExpenseActivity">
+        <activity android:name=".activity.save_expense.SaveExpenseActivity">
         </activity>
         <activity
-            android:name=".LogInActivity"
+            android:name=".activity.log_in.LogInActivity"
             android:label="@string/title_activity_log_in"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -26,6 +26,14 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".activity.create_spender.CreateSpenderActivity">
+        </activity>
+        <activity android:name=".activity.expense_list.ExpenseListActivity">
+        </activity>
+        <activity android:name=".activity.create_expense_list.CreateExpenseListActivity">
+        </activity>
+        <activity android:name=".activity.create_category.CreateCategoryActivity">
         </activity>
     </application>
 

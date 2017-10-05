@@ -5,19 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.myexpenses.activity.expense_list_report.ExpenseListReportActivity"
+    tools:context="com.myexpenses.activity.expense_list.ExpenseListActivity"
     android:orientation="vertical">
 
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/summaries_list"
+        android:id="@+id/expense_list_list"
         android:background="@color/gray"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/expense_list"
-    />
 
 </LinearLayout>

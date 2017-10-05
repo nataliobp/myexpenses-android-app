@@ -19,4 +19,13 @@
     <string name="title_activity_log_in">LogInActivity</string>
     <string name="logInText">Go!</string>
     <string name="who_are_you">Who are you?!</string>
+    <string name="your_data">Your data:</string>
+    <string name="euro">€</string>
+    <string name="enter_a_description">Enter a description</string>
+    <string name="_0_00">0.00</string>
+    <string name="your_name">your name</string>
+    <string name="your_email">your email</string>
+    <string name="give_it_a_name">Give it a name:</string>
+    <string name="the_name">the name</string>
+    <string name="create_category">Create category</string>
 </resources>

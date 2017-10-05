@@ -1,6 +1,9 @@
 package com.myexpenses.service.http;
 
+import com.myexpenses.model.Category;
 import com.myexpenses.model.Expense;
+import com.myexpenses.model.ExpenseList;
+import com.myexpenses.model.Spender;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -49,8 +52,35 @@ public class MyExpensesApiClient {
         return get(new Request(String.format("/expense_list/%s/categories", expenseListId)));
     }
 
+    public Response createCategory(Category aCategory) throws IOException {
+        Body body = new Body();
+        body.add("name", aCategory.name);
+        body.add("expense_list_id", aCategory.expenseListId);
+
+        return post(new Request("/category", body));
+    }
+
     public Response getSpenders() throws IOException {
         return get(new Request("/spenders"));
+    }
+
+    public Response registerSpender(Spender aSpender) throws IOException {
+        Body body = new Body();
+        body.add("name", aSpender.name);
+        body.add("email", aSpender.email);
+
+        return post(new Request("/spender", body));
+    }
+
+    public Response getExpenseLists() throws IOException {
+        return get(new Request("/expense_lists"));
+    }
+
+    public Response startExpenseList(ExpenseList anExpenseList) throws IOException {
+        Body body = new Body();
+        body.add("name", anExpenseList.name);
+
+        return post(new Request("/expense_list", body));
     }
 
     private Response get(Request request) throws IOException {

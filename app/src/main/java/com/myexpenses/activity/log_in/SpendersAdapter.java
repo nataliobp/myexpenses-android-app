@@ -1,4 +1,4 @@
-package com.myexpenses;
+package com.myexpenses.activity.log_in;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.myexpenses.R;
 import com.myexpenses.model.Spender;
 
 public class SpendersAdapter extends BaseAdapter {

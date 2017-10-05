@@ -9,4 +9,8 @@ public class ExpenseList {
         name = aName;
         expenseListId = anExpenseListId;
     }
+
+    public ExpenseList(String name) {
+       this(null, name);
+    }
 }

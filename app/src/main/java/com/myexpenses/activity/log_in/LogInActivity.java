@@ -1,4 +1,4 @@
-package com.myexpenses;
+package com.myexpenses.activity.log_in;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,7 +6,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -16,6 +15,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.myexpenses.activity.expense_list.ExpenseListActivity;
+import com.myexpenses.R;
+import com.myexpenses.activity.create_spender.CreateSpenderActivity;
 import com.myexpenses.model.Spender;
 import com.myexpenses.service.http.MyExpensesApiClient;
 import com.myexpenses.service.http.Response;
@@ -35,8 +37,6 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
     private SharedPreferences sharedpreferences;
     public static final String MyPREFERENCES = "MyPrefs";
     public static final String SPENDER_ID_KEY = "spenderIdKey";
-    public static final String EXPENSE_LIST_ID_KEY = "expenseListIdKey";
-    public static final String EXPENSE_LIST_ID = "7a4145ab-ed40-40c5-911b-6a8b7cc041c8";
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +45,6 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
         setAddSpenderButton();
         setSpendersData();
         sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-        setAHardcodedExpenseListId();
         setLogInButton();
     }
 
@@ -54,8 +53,8 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
         logInButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-            Intent expenseListReportIntent = new Intent(view.getContext(), ExpenseListReportActivity.class);
-            startActivity(expenseListReportIntent);
+                Intent expenseListIntent = new Intent(view.getContext(), ExpenseListActivity.class);
+                startActivity(expenseListIntent);
             }
         });
     }
@@ -72,26 +71,19 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     private void setAddSpenderButton() {
-        FloatingActionButton addSpenderButton = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton addSpenderButton = (FloatingActionButton) findViewById(R.id.addSpenderButton);
         addSpenderButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Snackbar
-                    .make(view, "Not Working!", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show();
+                Intent registerSpenderActivityIntent = new Intent(getBaseContext(), CreateSpenderActivity.class);
+                startActivity(registerSpenderActivityIntent);
             }
         });
     }
 
     private void setToolbar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.logInToolbar);
         setSupportActionBar(toolbar);
-    }
-
-    private void setAHardcodedExpenseListId() {
-        SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString(EXPENSE_LIST_ID_KEY, EXPENSE_LIST_ID);
-        editor.apply();
     }
 
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {

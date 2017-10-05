@@ -11,4 +11,8 @@ public class Category {
         categoryId = aCategoryId;
         expenseListId = anExpenseListId;
     }
+
+    public Category(String name, String expenseListId) {
+        this(null, name, expenseListId);
+    }
 }

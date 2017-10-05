@@ -1,4 +1,4 @@
-package com.myexpenses;
+package com.myexpenses.activity.save_expense;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,6 +16,11 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.myexpenses.R;
+import com.myexpenses.activity.expense_details.ExpenseDetailsActivity;
+import com.myexpenses.activity.expense_list.ExpenseListActivity;
+import com.myexpenses.activity.expense_list_report.ExpenseListReportActivity;
+import com.myexpenses.activity.log_in.LogInActivity;
 import com.myexpenses.model.Category;
 import com.myexpenses.model.Expense;
 import com.myexpenses.service.builder.ExpenseBuilder;
@@ -45,6 +50,7 @@ public class SaveExpenseActivity extends AppCompatActivity implements AdapterVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
         getDataFromSharedPreferences();
+        expenseListId = getIntent().getStringExtra(ExpenseListActivity.EXPENSE_LIST_ID);
         amountEdit = (EditText) findViewById(R.id.amountEdit);
         descriptionEdit = (EditText) findViewById(R.id.descriptionEdit);
         setCategoriesSpinner();
@@ -74,7 +80,6 @@ public class SaveExpenseActivity extends AppCompatActivity implements AdapterVie
     private void getDataFromSharedPreferences() {
         SharedPreferences sharedpreferences = getSharedPreferences(LogInActivity.MyPREFERENCES, Context.MODE_PRIVATE);
         spenderId = sharedpreferences.getString(LogInActivity.SPENDER_ID_KEY, "");
-        expenseListId = sharedpreferences.getString(LogInActivity.EXPENSE_LIST_ID_KEY, "");
     }
 
     private Expense getExpense() {
@@ -132,7 +137,7 @@ public class SaveExpenseActivity extends AppCompatActivity implements AdapterVie
         }
 
         ((CategoriesAdapter) categoriesSpinner.getAdapter()).setData(categories);
-        selectedCategoryId = categories[0].categoryId;
+        selectedCategoryId = categories.length == 0 ? null  : categories[0].categoryId;
 
         if (expense != null) {
             int index = ((CategoriesAdapter) categoriesSpinner.getAdapter()).getIndexOfCategory(expense.categoryId);
@@ -160,6 +165,7 @@ public class SaveExpenseActivity extends AppCompatActivity implements AdapterVie
             Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
 
             Intent expenseListReportActivityIntent = new Intent(getBaseContext(), ExpenseListReportActivity.class);
+            expenseListReportActivityIntent.putExtra(ExpenseListActivity.EXPENSE_LIST_ID, expenseListId);
             startActivity(expenseListReportActivityIntent);
             finish();
         }

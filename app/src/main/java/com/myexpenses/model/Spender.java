@@ -11,4 +11,8 @@ public class Spender {
         spenderId = aSpenderId;
         email = anEmail;
     }
+
+    public Spender(String aName, String anEmail) {
+       this(null, aName, anEmail);
+    }
 }

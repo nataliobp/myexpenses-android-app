@@ -1,4 +1,4 @@
-package com.myexpenses;
+package com.myexpenses.activity.expense_list_report;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.myexpenses.R;
 import com.myexpenses.model.Expense;
 import com.myexpenses.service.ui.InitialDrawer;
 
@@ -14,9 +15,9 @@ import java.util.Locale;
 public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.ExpenseViewHolder> {
 
     private Expense[] expenses = null;
-    private ExpenseListClickListener clickListener;
+    private ExpenseListReportClickListener clickListener;
 
-    public ExpensesAdapter(ExpenseListClickListener clickListener) {
+    public ExpensesAdapter(ExpenseListReportClickListener clickListener) {
         this.clickListener = clickListener;
     }
 
@@ -30,7 +31,7 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
         return new ExpenseViewHolder(
             LayoutInflater
                 .from(parent.getContext())
-                .inflate(R.layout.expense_list_item, parent, false));
+                .inflate(R.layout.expense_list_report_item, parent, false));
     }
 
     public void onBindViewHolder(ExpenseViewHolder holder, int position) {
@@ -66,7 +67,7 @@ public class ExpensesAdapter extends RecyclerView.Adapter<ExpensesAdapter.Expens
         }
     }
 
-    interface ExpenseListClickListener {
+    interface ExpenseListReportClickListener {
         void onItemClick(Expense anExpense);
     }
 }

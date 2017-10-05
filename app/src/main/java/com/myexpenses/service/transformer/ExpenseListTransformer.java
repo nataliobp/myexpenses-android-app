@@ -12,4 +12,9 @@ public class ExpenseListTransformer {
             payload.getString("name")
         );
     }
+
+    public ExpenseList fromJson(String payload) throws JSONException {
+        return fromJson(new JSONObject(payload));
+    }
+
 }
