@@ -77,6 +77,7 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onClick(View view) {
                 Intent registerSpenderActivityIntent = new Intent(getBaseContext(), CreateSpenderActivity.class);
                 startActivity(registerSpenderActivityIntent);
+                finish();
             }
         });
     }

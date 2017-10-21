@@ -61,6 +61,7 @@ public class ExpenseListReportActivity extends AppCompatActivity implements Expe
             Intent addExpenseActivityIntent = new Intent(getBaseContext(), SaveExpenseActivity.class);
             addExpenseActivityIntent.putExtra(ExpenseListActivity.EXPENSE_LIST_ID, expenseListId);
             startActivity(addExpenseActivityIntent);
+            finish();
             }
         });
     }
@@ -100,6 +101,11 @@ public class ExpenseListReportActivity extends AppCompatActivity implements Expe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    protected void onResume() {
+        requestExpenseListReportData();
+        super.onResume();
     }
 
     private void requestExpenseListReportData() {

@@ -116,8 +116,7 @@ public class MyExpensesApiClient {
     }
 
     private Response delete(Request request) throws IOException {
-        URL url = new URL(request.url);
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+        HttpURLConnection conn = (HttpURLConnection) new URL(BASE_URL + request.url).openConnection();
         conn.setDoOutput(true);
         conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
         conn.setRequestMethod("DELETE");

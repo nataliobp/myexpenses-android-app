@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.myexpenses.R;
+import com.myexpenses.activity.expense_list.ExpenseListActivity;
 import com.myexpenses.activity.save_expense.SaveExpenseActivity;
 import com.myexpenses.activity.expense_list_report.ExpenseListReportActivity;
 import com.myexpenses.model.Expense;
@@ -57,6 +58,7 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
         } else if (isAnEdition(item)) {
             Intent editExpenseActivityIntent = new Intent(getBaseContext(), SaveExpenseActivity.class);
             editExpenseActivityIntent.putExtra(ExpenseListReportActivity.EXPENSE_PAYLOAD, new Gson().toJson(expense));
+            editExpenseActivityIntent.putExtra(ExpenseListActivity.EXPENSE_LIST_ID, expense.expenseListId);
             startActivity(editExpenseActivityIntent);
             finish();
         }
@@ -140,8 +142,9 @@ public class ExpenseDetailsActivity extends AppCompatActivity {
                 : "Something went wrong";
 
             Toast.makeText(getBaseContext(), message, Toast.LENGTH_LONG).show();
-            Intent startChildActivityIntent = new Intent(getBaseContext(), ExpenseListReportActivity.class);
-            startActivity(startChildActivityIntent);
+            Intent expenseListReportIntent = new Intent(getBaseContext(), ExpenseListReportActivity.class);
+            expenseListReportIntent.putExtra(ExpenseListActivity.EXPENSE_LIST_ID, expense.expenseListId);
+            startActivity(expenseListReportIntent);
             finish();
         }
     }

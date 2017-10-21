@@ -46,7 +46,6 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseLis
         Intent expenseListReportActivityIntent = new Intent(getBaseContext(), ExpenseListReportActivity.class);
         expenseListReportActivityIntent.putExtra(EXPENSE_LIST_ID, anExpenseList.expenseListId);
         startActivity(expenseListReportActivityIntent);
-        finish();
     }
 
     private void setAddExpenseListButton() {
@@ -56,6 +55,7 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseLis
             public void onClick(View view) {
                 Intent createExpenseListActivityIntent = new Intent(getBaseContext(), CreateExpenseListActivity.class);
                 startActivity(createExpenseListActivityIntent);
+                finish();
             }
         });
     }
