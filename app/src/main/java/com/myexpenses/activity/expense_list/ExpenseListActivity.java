@@ -68,7 +68,7 @@ public class ExpenseListActivity extends AppCompatActivity implements ExpenseLis
             } catch (IOException e) {
                 Log.e(getClass().toString(), e.toString());
 
-                return new SomethingWentWrongResponse();
+                return new SomethingWentWrongResponse(e.toString());
             }
         }
 

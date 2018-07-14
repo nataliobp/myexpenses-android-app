@@ -1,7 +1,7 @@
 package com.myexpenses.service.http;
 
 public class SomethingWentWrongResponse extends Response {
-    public SomethingWentWrongResponse() {
-        super(0, "Something went wrong");
+    public SomethingWentWrongResponse(String s) {
+        super(0, s);
     }
 }

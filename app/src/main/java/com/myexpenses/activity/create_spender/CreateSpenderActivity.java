@@ -64,7 +64,7 @@ public class CreateSpenderActivity extends AppCompatActivity {
             } catch (IOException e) {
                 Log.e(getClass().toString(), e.toString());
 
-                return new SomethingWentWrongResponse();
+                return new SomethingWentWrongResponse(e.toString());
             }
         }
 

@@ -116,7 +116,7 @@ public class LogInActivity extends AppCompatActivity implements AdapterView.OnIt
             } catch (IOException e) {
                 Log.e(getClass().toString(), e.toString());
 
-                return new SomethingWentWrongResponse();
+                return new SomethingWentWrongResponse(e.toString());
             }
         }
 
